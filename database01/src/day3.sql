@@ -18,6 +18,8 @@ SELECT *
 FROM emp
 WHERE ENAME
 LIKE 'a____';
+SELECT *
+FROM emp;
 
 
 
