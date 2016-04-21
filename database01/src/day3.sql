@@ -1,0 +1,25 @@
+SHOW DATABASES;
+USE scott;
+SHOW TABLES;
+-- like 模糊查询。
+SELECT *
+FROM emp;
+
+SELECT *
+FROM emp
+WHERE ENAME
+LIKE 'a%';
+
+SELECT *
+FROM emp
+WHERE ENAME
+LIKE '%a%';
+SELECT *
+FROM emp
+WHERE ENAME
+LIKE 'a____';
+
+
+
+
+
