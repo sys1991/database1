@@ -25,36 +25,66 @@ WHERE e.COMM > e.SAL * 0.6;
 SELECT *
 FROM emp
 WHERE (DEPTNO = 10
-       AND (JOB = 'MANAGER'))
+       AND JOB = 'MANAGER')
       OR (DEPTNO = 20
-          AND (JOB = 'CLERk'));
+          AND JOB = 'CLERk');
 # 6. 找出10部门的经理、20部门的职员或者既不是经理也不是职员但是高于2000元的员工信息。
+SELECT *
+FROM emp
+WHERE ((DEPTNO = 10 AND JOB = 'MANAGER') OR (DEPTNO = 20 AND JOB = 'CLERk'))
+      OR (DEPTNO IN (10, 20) AND JOB NOT IN ('manager', 'clerk') AND SAL + ifnull(COMM, 0) > 2000);
+# 7. 找出获得奖金的员工的工作。
+SELECT *
+FROM emp
+WHERE ifnull(COMM, 0) > 0;
+# 8. 找出奖金少于100或者没有获得奖金的员工的信息。
+SELECT *
+FROM emp
+WHERE ifnull(COMM, 0) BETWEEN 0 AND 100;
+# 9. 查找员工雇佣日期中当月的最后一天雇佣的。
+
+# 10. 检索出雇佣年限超过12年的员工信息。
+
+# 11. 找出姓名以A、B、S开始的员工信息。
+SELECT *
+FROM emp
+WHERE ENAME RLIKE '^[abc]';
+# 12. 找到名字长度为7个字符的员工信息。
+
+# 13. 名字中不包含R字符的员工信息。
 SELECT *
 FROM emp;
 SELECT *
-FROM emp e
-WHERE ((e.DEPTNO = 10
-        AND e.JOB = 'MANAGER')
-       OR (e.DEPTNO =20
-           AND e.JOB = 'CLERk'))
-      OR ((e.DEPTNO = 10 OR e.DEPTNO = 20)AND ((e.JOB!='manager'OR e.JOB!='clerk')
-          AND (e.SAL + e.COMM > 2000)));
-# 7. 找出获得奖金的员工的工作。
-# 8. 找出奖金少于100或者没有获得奖金的员工的信息。
-# 9. 查找员工雇佣日期中当月的最后一天雇佣的。
-# 10. 检索出雇佣年限超过12年的员工信息。
-# 11. 找出姓名以A、B、S开始的员工信息。
-# 12. 找到名字长度为7个字符的员工信息。
-# 13. 名字中不包含R字符的员工信息。
+FROM emp
+WHERE ENAME NOT LIKE '%r%';
 # 14. 找出员工名字的前3个字符。
+SELECT substr(ENAME, 1, 3)
+FROM emp;
 # 15. 将名字中A改为a。
+
 # 16. 将员工的雇佣日期拖后10年。
 # 17. 返回员工的详细信息并按姓名排序。
+SELECT *
+FROM emp
+ORDER BY ENAME;
 # 18. 返回员工的信息并按员工的工作年限降序排列。
+SELECT *
+FROM emp
+ORDER BY HIREDATE;
 # 19. 返回员工的信息并按工作降序工资升序排列。
+SELECT *
+FROM emp
+ORDER BY SAL;
 # 20. 返回员工的姓名、雇佣年份和月份并且按月份和雇佣日期排序。
 # 21. 计算员工的日薪(按30天)。
+SELECT
+  ename,
+  round((SAL + ifnull(COMM, 0)) / 30,2)
+FROM emp;
 # 22. 找出2月份雇佣的员工。
 # 23. 至今为止，员工被雇佣的天数。
 # 24. 找出姓名中包含A的员工信息。
+SELECT *
+FROM emp
+WHERE ENAME LIKE '%a%';
 # 25. 计算出员工被雇佣了多少年、多少月、多少日。
