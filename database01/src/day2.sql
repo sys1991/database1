@@ -44,7 +44,9 @@ WHERE ifnull(COMM, 0) BETWEEN 0 AND 100;
 # 9. 查找员工雇佣日期中当月的最后一天雇佣的。
 
 # 10. 检索出雇佣年限超过12年的员工信息。
-
+SELECT now() - HIREDATE
+FROM emp
+;
 # 11. 找出姓名以A、B、S开始的员工信息。
 SELECT *
 FROM emp
