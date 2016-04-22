@@ -11,67 +11,77 @@
       <table id="2" parent="1" name="dept"/>
       <table id="3" parent="1" name="emp"/>
       <table id="4" parent="1" name="salgrade"/>
-      <column id="5" parent="2" name="DEPTNO">
+      <table id="5" parent="1" name="emp_2"/>
+      <column id="6" parent="2" name="DEPTNO">
         <mandatory>1</mandatory>
         <data-type>int(2)</data-type>
       </column>
-      <column id="6" parent="2" name="DNAME">
+      <column id="7" parent="2" name="DNAME">
         <data-type>varchar(14)</data-type>
       </column>
-      <column id="7" parent="2" name="LOC">
+      <column id="8" parent="2" name="LOC">
         <data-type>varchar(13)</data-type>
       </column>
-      <key id="8" parent="2" name="PRIMARY">
+      <key id="9" parent="2" name="PRIMARY">
         <columns>DEPTNO</columns>
         <primary>1</primary>
       </key>
-      <column id="9" parent="3" name="EMPNO">
+      <column id="10" parent="3" name="EMPNO">
         <mandatory>1</mandatory>
         <data-type>int(4)</data-type>
       </column>
-      <column id="10" parent="3" name="ENAME">
+      <column id="11" parent="3" name="ENAME">
         <data-type>varchar(10)</data-type>
       </column>
-      <column id="11" parent="3" name="JOB">
+      <column id="12" parent="3" name="JOB">
         <data-type>varchar(9)</data-type>
       </column>
-      <column id="12" parent="3" name="MGR">
+      <column id="13" parent="3" name="MGR">
         <data-type>int(4)</data-type>
       </column>
-      <column id="13" parent="3" name="HIREDATE">
+      <column id="14" parent="3" name="HIREDATE">
         <data-type>date</data-type>
       </column>
-      <column id="14" parent="3" name="SAL">
+      <column id="15" parent="3" name="SAL">
         <data-type>double(7,2)</data-type>
       </column>
-      <column id="15" parent="3" name="COMM">
+      <column id="16" parent="3" name="COMM">
         <data-type>double(7,2)</data-type>
       </column>
-      <column id="16" parent="3" name="DEPTNO">
+      <column id="17" parent="3" name="DEPTNO">
         <data-type>int(2)</data-type>
       </column>
-      <index id="17" parent="3" name="FK_emp_deptno">
+      <index id="18" parent="3" name="FK_emp_deptno">
         <columns>DEPTNO</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="18" parent="3" name="PRIMARY">
+      <key id="19" parent="3" name="PRIMARY">
         <columns>EMPNO</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="19" parent="3" name="FK_emp_deptno">
+      <foreign-key id="20" parent="3" name="FK_emp_deptno">
         <columns>DEPTNO</columns>
         <ref-key>~.dept.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="20" parent="4" name="GRADE">
+      <column id="21" parent="4" name="GRADE">
         <data-type>int(11)</data-type>
       </column>
-      <column id="21" parent="4" name="LOSAL">
+      <column id="22" parent="4" name="LOSAL">
         <data-type>int(11)</data-type>
       </column>
-      <column id="22" parent="4" name="HISAL">
+      <column id="23" parent="4" name="HISAL">
         <data-type>int(11)</data-type>
+      </column>
+      <column id="24" parent="5" name="ENAME">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="25" parent="5" name="SAL">
+        <data-type>double(7,2)</data-type>
+      </column>
+      <column id="26" parent="5" name="COMM">
+        <data-type>double(7,2)</data-type>
       </column>
     </database-model>
   </data-source>
